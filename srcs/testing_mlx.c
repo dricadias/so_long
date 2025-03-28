@@ -64,16 +64,10 @@ int	color_loop(t_data *img)
 	};
 
 	static int index = 0;
-	//static int	increment = 0x010000;
 	index++;
 	if (index >= 7)
 		index = 0;
 	int color = colors[index];
-	/*color += increment;*/
-	/*if (color >= 0xFFFFFF)*/
-	/*	color = 0x000000;*/
-	//printf("loop: %06X\n", color);
-	//mlx_clear_window(mlx, mlx_win);
 	mlx_destroy_image(mlx, img->img);
 	img->img = mlx_new_image(mlx, 7200, 480);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);

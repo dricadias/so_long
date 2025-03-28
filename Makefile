@@ -19,7 +19,7 @@ MLX_FLAGS = -lm -lmlx -lXext -lX11
 LIBFTDIR = libft
 RM = rm -rf
 
-SRCS = srcs/map.c
+SRCS = srcs/map.c srcs/rendering.c #srcs/testing_mlx.c
 
 OBJS = $(SRCS:.c=.o)
 

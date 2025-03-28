@@ -6,13 +6,13 @@
 /*   By: adias-do <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/27 12:11:16 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:44:28 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int read_file(char *file)
+void read_file(char *file)
 {
 	int		fd;
 	char	*open_file;
@@ -25,7 +25,7 @@ int read_file(char *file)
    	free (open_file);
    	open_file = get_next_line(fd);
   }
-	return (0);
+	//return (0);
 }
 
 int	valid_file(char *file)
@@ -52,6 +52,7 @@ int	main(int argc, char **argv)
 		if (ret == 0)
 		{
 			read_file(argv[1]);
+			rendering_map(argv[1]);
 		}
 		else
 		{
