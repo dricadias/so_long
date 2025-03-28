@@ -19,7 +19,7 @@ MLX_FLAGS = -lm -lmlx -lXext -lX11
 LIBFTDIR = libft
 RM = rm -rf
 
-SRCS = map.c
+SRCS = srcs/map.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
+#include "../mlx/mlx.h"
 #include <unistd.h>
 #include <stdio.h>
 

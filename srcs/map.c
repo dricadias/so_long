@@ -10,24 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/so_long.h"
+#include "../include/so_long.h"
 
-int	check_walls(char *file)
+int read_file(char *file)
 {
-	char *line = get_next_line(0);
-	while(line)
-	{
-		if (ft_strncmp(line, file, 10))
-		{
-			ft_putendl_fd("nao tem barreira", 2);
-			return (1);
-		}
-		line = get_next_line(0);
-	}
+	int		fd;
+	char	*open_file;
+	
+  fd = open(file, O_RDONLY);
+  open_file = get_next_line(fd);
+  while (open_file) 
+  {
+   	ft_printf("%s", open_file);
+   	free (open_file);
+   	open_file = get_next_line(fd);
+  }
 	return (0);
 }
 
-int	read_file(char *file)
+int	valid_file(char *file)
 {
 	int ber;
 
@@ -36,7 +37,7 @@ int	read_file(char *file)
 	ber = ft_strlen(file);
 	while(file[ber] != '.')
 		ber--;
-	if (ft_strncmp(".ber\0", &file[ber] , 5) == 0)
+	if (ft_strncmp(".ber\0", &file[ber] , 5) == 0 && file[ber - 1])
 		return (0);
 	return (1);
 }
@@ -47,10 +48,10 @@ int	main(int argc, char **argv)
 	{
 		int	ret;
 
-		ret = read_file(argv[1]);
+		ret = valid_file(argv[1]);
 		if (ret == 0)
 		{
-			check_walls(argv[1]);
+			read_file(argv[1]);
 		}
 		else
 		{

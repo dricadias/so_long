@@ -13,9 +13,9 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#	include "../libft/libft.h"
-#	include <stdlib.h>
-#	include <stdio.h>
+# include "../libft/libft.h"
+# include <stdlib.h>
+# include <stdio.h>
 # include <errno.h>
 # include <fcntl.h>
 
