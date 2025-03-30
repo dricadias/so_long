@@ -37,7 +37,7 @@ typedef struct s_data
 
 // functions
 int	valid_file(char *file);
-void read_file(char *file);
+int read_file(char *file);
 
 // mlx
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
