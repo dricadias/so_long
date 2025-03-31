@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/31 05:05:49 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:02:07 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int read_file(char *file)
 	char	*open_file;
 	
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (-1);
 	open_file = get_next_line(fd);
 	nl_counter = 0;
 	while (open_file) 
@@ -28,6 +30,7 @@ int read_file(char *file)
 		open_file = get_next_line(fd);
 		nl_counter++;
 	}
+	close(fd);
 	return (nl_counter);
 }
 
