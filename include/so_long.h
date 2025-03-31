@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/31 04:20:21 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/31 05:32:56 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_pos
 
 typedef struct s_map
 {
-	char	**matrix;
+	char	**matriz;
 	int		height;
 	int		width;
 }	t_map;

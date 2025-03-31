@@ -30,15 +30,15 @@ int		get_width(char *file)
 char	**create_map(char *file)
 {
 	int		i;
-	char	**matrix;
+	char	**matriz;
 	int		height = read_file(file);
 	int		width = get_width(file);
 
 	i = 0;
-	matrix = (char **)malloc(sizeof(char *) * height);
+	matriz = (char **)malloc(sizeof(char *) * height);
 	while(i < height)
 	{
-		matrix[i] = (char *)malloc(sizeof(char) * (width + 1));
+		matriz[i] = (char *)malloc(sizeof(char) * (width + 1));
 		i++;
 	}
 	return (matrix);
@@ -58,12 +58,12 @@ void	fill_map(t_map *map, char *file)
 	while (x < height)
 	{
 		line = get_next_line(fd);
-		ft_strlcpy(map->matrix[x], line, width + 1); // a primeira linha 
+		ft_strlcpy(map->matriz[x], line, width + 1); // a primeira linha 
 		free(line);									// ta sendo impressa errado
 		/* y = 0;
 		while(y < width)
 		{
-			matrix[x][y] = 'F'; assim preenche normal e certo
+			matriz[x][y] = 'F'; assim preenche normal e certo
 			y++;
 		} */
 		x++;
@@ -79,7 +79,7 @@ int		main(int argc, char **argv)
 	int		height = read_file(argv[1]);
 	int		width = get_width(argv[1]);
 	
-	map.matrix = create_map(argv[1]);
+	map.matriz = create_map(argv[1]);
 	fill_map(&map, argv[1]);
 
 	x = 0;
@@ -88,7 +88,7 @@ int		main(int argc, char **argv)
 		y = 0;
 		while(y < width)
 		{
-			ft_printf("%c", map.matrix[x][y]);
+			ft_printf("%c", map.matriz[x][y]);
 			y++;
 		}
 		ft_printf("\n");
