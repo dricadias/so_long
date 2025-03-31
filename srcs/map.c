@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adias-do <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/28 14:44:28 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/31 05:05:49 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int read_file(char *file)
 	int		nl_counter;
 	char	*open_file;
 	
-  fd = open(file, O_RDONLY);
-  open_file = get_next_line(fd);
+	fd = open(file, O_RDONLY);
+	open_file = get_next_line(fd);
 	nl_counter = 0;
-  while (open_file) 
-  {
-   	ft_printf("%s", open_file);
-   	free (open_file);
-   	open_file = get_next_line(fd);
+	while (open_file) 
+	{
+		//ft_printf("%s", open_file);
+		free (open_file);
+		open_file = get_next_line(fd);
 		nl_counter++;
 	}
 	return (nl_counter);
@@ -45,7 +45,7 @@ int	valid_file(char *file)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
@@ -64,4 +64,4 @@ int	main(int argc, char **argv)
 		}
 	}
 	return (0);
-}
+} */

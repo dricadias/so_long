@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   testing_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:43:22 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/18 13:39:42 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:29:24 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
+#include "../include/so_long.h"
 #include <unistd.h>
 #include <stdio.h>
 
@@ -78,10 +79,10 @@ int	color_loop(t_data *img)
 	return (0);
 }
 
-int main(void)
+/* int main(void)
 {
-	/*void	*mlx;*/
-	/*void	*mlx_win;*/
+	//void	*mlx;
+	//void	*mlx_win;
 	t_data	img;
 
 	mlx = mlx_init();
@@ -96,4 +97,4 @@ int main(void)
 	mlx_loop_hook(mlx, color_loop, &img);
 	//mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
-}
+} */
