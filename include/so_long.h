@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/31 05:32:56 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/31 20:36:15 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ int read_file(char *file);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	put_square(t_data *img, int x, int y, int size, int color);
 void	rendering_map(char *file);
+
 #endif
