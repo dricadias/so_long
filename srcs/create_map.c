@@ -13,34 +13,55 @@
 #include "../include/so_long.h"
 
 // funcao provavelmente temporaria
-int		get_width(char *file)
+int	get_width(char *file)
 {
-	int	fd;
-	int	width;
-	char *line;
+	int		fd;
+	int		width;
+	char	*line;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (-1);
 	line = get_next_line(fd);
-	width = ft_strlen(line) - 1; // tira o '\n'
+	width = ft_strlen(line);
 	free(line);
 	close(fd);
-	return(width);
+	return (width);
+}
+
+int	get_height(char *file)
+{
+	int		fd;
+	int		height;
+	char	*open_file;
+	
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	open_file = get_next_line(fd);
+	height = 0;
+	while (open_file) 
+	{
+		free (open_file);
+		open_file = get_next_line(fd);
+		height++;
+	}
+	close(fd);
+	return (height);
 }
 
 char	**create_map(char *file)
 {
 	int		i;
 	char	**matriz;
-	int		height = read_file(file);
+	int		height = get_height(file);
 	int		width = get_width(file);
 
 	matriz = (char **)malloc(sizeof(char *) * (height + 1));
 	if (!matriz)
 		return (NULL);
 	i = 0;
-	while(i < height)
+	while (i < height)
 	{
 		matriz[i] = (char *)malloc(sizeof(char) * (width + 1));
 		if (!matriz[i])
@@ -55,10 +76,8 @@ char	**create_map(char *file)
 void	fill_map(t_map *map, char *file)
 {
 	int		x;
-	//int		y;
 	int		fd;
-	int		height = read_file(file);
-	//int		width = get_width(file);
+	int		height = get_height(file);
 	char	*line;
 
 	fd = open(file, O_RDONLY);
@@ -73,33 +92,4 @@ void	fill_map(t_map *map, char *file)
 		x++;
 	}
 	close(fd);
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc == 2)
-	{
-		(void)argc;
-		t_map	map;
-		int		x;
-		int		y;
-		int		height = read_file(argv[1]);
-		int		width = get_width(argv[1]);
-		
-		map.matriz = create_map(argv[1]);
-		fill_map(&map, argv[1]);
-
-		x = 0;
-		while(x < height)
-		{
-			y = 0;
-			while(y < width)
-			{
-				ft_printf("%c", map.matriz[x][y]);
-				y++;
-			}
-			ft_printf("\n");
-			x++;
-		}
-	}
 }
