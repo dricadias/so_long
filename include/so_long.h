@@ -44,12 +44,17 @@ typedef struct s_data
 }	t_data;
 
 // functions
-int	valid_file(char *file);
-int read_file(char *file);
+int		valid_file(char *file);
+
+// matriz
+void	fill_map(t_map *map, char *file);
+char	**create_map(char *file);
+int		get_width(char *file);
+int		get_height(char *file);
 
 // mlx
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	put_square(t_data *img, int x, int y, int size, int color);
-void	rendering_map(char *file);
+void	rendering_map(void);
 
 #endif
