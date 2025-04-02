@@ -14,12 +14,12 @@
 
 int	valid_file(char *file)
 {
-	int ber;
+	int	ber;
 
 	if (!file)
 		return (0);
 	ber = ft_strlen(file);
-	while(file[ber] != '.')
+	while (file[ber] != '.')
 		ber--;
 	if (ft_strncmp(".ber\0", &file[ber], 5) == 0 && file[ber - 1])
 		return (1);
