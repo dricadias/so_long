@@ -50,44 +50,53 @@ int	get_height(char *file)
 	return (height);
 }
 
-char	**create_map(char *file)
+// dando leak aqui. fazer uma funcao pra limpar a matriz
+char	**create_map(t_map *map, char *file)
 {
 	int		i;
-	char	**matriz;
-	int		height = get_height(file);
-	int		width = get_width(file);
+	map->height = get_height(file);
+	map->width = get_width(file);
 
-	matriz = (char **)malloc(sizeof(char *) * (height + 1));
-	if (!matriz)
+	map->matriz = (char **)malloc(sizeof(char *) * (map->height + 1));
+	if (!map->matriz)
 		return (NULL);
 	i = 0;
-	while (i < height)
+	while (i < map->height)
 	{
-		matriz[i] = (char *)malloc(sizeof(char) * (width + 1));
-		if (!matriz[i])
+		map->matriz[i] = (char *)malloc(sizeof(char) * (map->width + 1));
+		if (!map->matriz[i])
+		{
+			while (i > 0)
+			{
+				free(map->matriz[i - 1]);
+				i--;
+			}
+			free(map->matriz);
 			return (NULL);
+		}
 		i++;
 	}
-	matriz[i] = NULL;
-	return (matriz);
+	map->matriz[i] = NULL;
+	return (map->matriz);
 }
 
 // pq nao funciona com o width aaaaa
+// att agora ta funcionando quando chamo com a struct ????
 void	fill_map(t_map *map, char *file)
 {
 	int		x;
 	int		fd;
-	int		height = get_height(file);
 	char	*line;
+	map->height = get_height(file); // pq EU TENHO QUE FAZER ISSO DE NOVOOOOOOOO
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return ;
 	x = 0;
-	while (x < height)
+	while (x < map->height)
 	{
 		line = get_next_line(fd);
-		ft_strlcpy(map->matriz[x], line, ft_strlen(line) + 1);
+		ft_strlcpy(map->matriz[x], line, map->width + 1); //ft_strlen(line) + 1
 		free(line);
 		x++;
 	}
