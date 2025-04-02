@@ -12,57 +12,16 @@
 
 #include "../include/so_long.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
-
-void	put_square(t_data *img, int x, int y, int size, int color)
-{
-	int	i;
-	int j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			my_mlx_pixel_put(img, x + i, y + j, color);
-    		j++;
-		}
-		i++;
-	}
-}
-
-/*void	rendering_map(void)
-{
-	void		*mlx;
-	void		*mlx_win;
-	t_data	img;
-	char		*path = "./quadrado_cinza.xpm";
-	void		*img_quadrado;
-	int			img_width;
-	int			img_height;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 720, 480, "so_long");
-	img.img = mlx_new_image(mlx, 720, 480);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	img_quadrado = mlx_xpm_file_to_image(mlx, path, &img_width, &img_height);
-	mlx_put_image_to_window(mlx, mlx_win, img_quadrado, 0, 0);
-	mlx_loop(mlx);
-}*/
-
-void load_img(t_game *game)
+void	load_img(t_game *game)
 {
 	int	width;
 	int	height;
 
-	game->img_wall = mlx_xpm_file_to_image(game->mlx, "quadrado_cinza.xpm", &width, &height);
+	game->img_wall = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_cinza50.xpm", &width, &height);
+	game->img_floor = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_verde.xpm", &width, &height);
+	game->img_coll = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_amarelo.xpm", &width, &height);
+	game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_azul.xpm", &width, &height);
+	game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_vermelho.xpm", &width, &height);
 }
 
 void	rendering_map(t_game *game)
@@ -78,6 +37,14 @@ void	rendering_map(t_game *game)
 		{
 			if (game->map->matriz[x][y] == '1')
 				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_wall, y * 50, x * 50);
+			else if (game->map->matriz[x][y] == '0')
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_floor, y * 50, x * 50);
+			else if (game->map->matriz[x][y] == 'C')
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_coll, y * 50, x * 50);
+			else if (game->map->matriz[x][y] == 'P')
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_player, y * 50, x * 50);
+			else if (game->map->matriz[x][y] == 'E')
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_exit, y * 50, x * 50);
 			y++;
 		}
 		x++;
