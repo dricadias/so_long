@@ -50,6 +50,7 @@ typedef struct s_game {
     void    *img_wall;
     void    *img_floor;
     void    *img_player;
+		void		*img_coll;
     void    *img_exit;
     t_map   *map;
 }   t_game;
@@ -58,7 +59,7 @@ typedef struct s_game {
 int		valid_file(char *file);
 
 // matriz
-void	fill_map(t_map *map, char *file);
+char	**fill_map(t_map *map, char *file);
 char	**create_map(t_map *map, char *file);
 int		get_width(char *file);
 int		get_height(char *file);
