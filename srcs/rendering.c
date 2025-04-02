@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:27:04 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/30 19:51:01 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/02 02:49:02 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	put_square(t_data *img, int x, int y, int size, int color)
 	}
 }
 
-void rendering_map(void)
+/*void	rendering_map(void)
 {
 	void		*mlx;
 	void		*mlx_win;
@@ -55,4 +55,31 @@ void rendering_map(void)
 	img_quadrado = mlx_xpm_file_to_image(mlx, path, &img_width, &img_height);
 	mlx_put_image_to_window(mlx, mlx_win, img_quadrado, 0, 0);
 	mlx_loop(mlx);
+}*/
+
+void load_img(t_game *game)
+{
+	int	width;
+	int	height;
+
+	game->img_wall = mlx_xpm_file_to_image(game->mlx, "quadrado_cinza.xpm", &width, &height);
+}
+
+void	rendering_map(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < game->map->height)
+	{
+		y = 0;
+		while (y < game->map->width)
+		{
+			if (game->map->matriz[x][y] == '1')
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_wall, y * 50, x * 50);
+			y++;
+		}
+		x++;
+	}
 }
