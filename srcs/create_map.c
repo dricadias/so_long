@@ -34,13 +34,13 @@ int	get_height(char *file)
 	int		fd;
 	int		height;
 	char	*open_file;
-	
+
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (-1);
 	open_file = get_next_line(fd);
 	height = 0;
-	while (open_file) 
+	while (open_file)
 	{
 		free (open_file);
 		open_file = get_next_line(fd);
@@ -54,9 +54,9 @@ int	get_height(char *file)
 char	**create_map(t_map *map, char *file)
 {
 	int		i;
+
 	map->height = get_height(file);
 	map->width = get_width(file);
-
 	map->matriz = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!map->matriz)
 		return (NULL);
@@ -82,23 +82,29 @@ char	**create_map(t_map *map, char *file)
 
 // pq nao funciona com o width aaaaa
 // att agora ta funcionando quando chamo com a struct ????
-void	fill_map(t_map *map, char *file)
+char	**fill_map(t_map *map, char *file)
 {
-	int		x;
 	int		fd;
+	char	*tmp;
+	char	*join;
 	char	*line;
-	map->height = get_height(file); // pq EU TENHO QUE FAZER ISSO DE NOVOOOOOOOO
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return ;
-	x = 0;
-	while (x < map->height)
+		return (NULL);
+	join = NULL;
+	line = get_next_line(fd);
+	while (line)
 	{
-		line = get_next_line(fd);
-		ft_strlcpy(map->matriz[x], line, map->width + 1); //ft_strlen(line) + 1
+		if (!join)
+			join = ft_strdup("");
+		tmp = ft_strjoin(join, line);
 		free(line);
-		x++;
+		free(join);
+		line = get_next_line(fd);
+		join = tmp;
 	}
 	close(fd);
+	map->matriz = ft_split(join, '\n');
+	return (map->matriz);
 }
