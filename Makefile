@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:03:16 by adias-do          #+#    #+#              #
-#    Updated: 2025/03/31 05:12:01 by adias-do         ###   ########.fr        #
+#    Updated: 2025/04/03 18:57:48 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,12 @@ MLX_FLAGS = -lm -lmlx -lXext -lX11
 LIBFTDIR = libft
 RM = rm -rf
 
-SRCS = srcs/map.c srcs/rendering.c srcs/create_map.c srcs/so_long.c #srcs/testing_mlx.c
+SRCS = srcs/map.c \
+	srcs/rendering.c \
+	srcs/create_map.c \
+	srcs/so_long.c \
+	srcs/free.c \
+	#srcs/testing_mlx.c
 
 OBJS = $(SRCS:.c=.o)
 
