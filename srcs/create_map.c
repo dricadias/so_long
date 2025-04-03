@@ -12,99 +12,71 @@
 
 #include "../include/so_long.h"
 
-// funcao provavelmente temporaria
-int	get_width(char *file)
+int	get_width(char *content)
 {
-	int		fd;
-	int		width;
-	char	*line;
+	int	width;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (-1);
-	line = get_next_line(fd);
-	width = ft_strlen(line);
-	free(line);
-	close(fd);
-	return (width);
+	width = 0;
+	while (content[width] && content[width] != '\n')
+		width++;
+	return(width);
 }
 
-int	get_height(char *file)
+int	get_height(char *content)
 {
-	int		fd;
-	int		height;
-	char	*open_file;
+	int	i;
+	int	height;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (-1);
-	open_file = get_next_line(fd);
+	i = 0;
 	height = 0;
-	while (open_file)
+	while (content[i])
 	{
-		free (open_file);
-		open_file = get_next_line(fd);
-		height++;
+		if (content[i] == '\n')
+			height++;
+		if (content[i] == '\n' && content[i + 1] == '\n')
+			return (height);
+		i++;
 	}
-	close(fd);
+	height++;
 	return (height);
 }
 
-// dando leak aqui. fazer uma funcao pra limpar a matriz
-char	**create_map(t_map *map, char *file)
+void	set_values(t_map *map, char *file)
 {
-	int		i;
+	char	*content;
 
-	map->height = get_height(file);
-	map->width = get_width(file);
-	map->matriz = (char **)malloc(sizeof(char *) * (map->height + 1));
-	if (!map->matriz)
-		return (NULL);
-	i = 0;
-	while (i < map->height)
-	{
-		map->matriz[i] = (char *)malloc(sizeof(char) * (map->width + 1));
-		if (!map->matriz[i])
-		{
-			while (i > 0)
-			{
-				free(map->matriz[i - 1]);
-				i--;
-			}
-			free(map->matriz);
-			return (NULL);
-		}
-		i++;
-	}
-	map->matriz[i] = NULL;
-	return (map->matriz);
+	content = get_content(file);
+	map->height = get_height(content);
+	map->width = get_width(content);
+	map->matriz = ft_split(content, '\n');
+	free(content);
 }
 
-// pq nao funciona com o width aaaaa
-// att agora ta funcionando quando chamo com a struct ????
-char	**fill_map(t_map *map, char *file)
+char	*get_content(char *file)
 {
 	int		fd;
-	char	*tmp;
-	char	*join;
+	char	*temp;
 	char	*line;
+	char	*content;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	join = NULL;
+	content = NULL;
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (!join)
-			join = ft_strdup("");
-		tmp = ft_strjoin(join, line);
+		if (!content)
+			content = ft_strdup(line);
+		else
+		{
+			temp = ft_strjoin(content, line);
+			free(content);
+			content = temp;
+		}
 		free(line);
-		free(join);
 		line = get_next_line(fd);
-		join = tmp;
 	}
 	close(fd);
-	map->matriz = ft_split(join, '\n');
-	return (map->matriz);
+	return (content);
 }
