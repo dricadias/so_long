@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:27:04 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/02 02:49:02 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/03 23:31:33 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	rendering_map(t_game *game)
 	int	y;
 
 	x = 0;
-	while (x < game->map->height)
+	while (x < game->map->height && game->map->matriz[x])
 	{
 		y = 0;
-		while (y < game->map->width)
+		while (y < game->map->width && game->map->matriz[x][y])
 		{
 			if (game->map->matriz[x][y] == '1')
 				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_wall, y * 50, x * 50);
