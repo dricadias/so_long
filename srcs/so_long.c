@@ -35,15 +35,14 @@ int	main(int argc, char **argv)
 {
 	int		ret;
 	t_map	map;
+	t_game	game;
 
 	if (argc == 2)
 	{
 		ret = valid_file(argv[1]);
 		if (ret == 1)
 		{
-			//print_map(map);
-			t_game game;
-			
+			print_map(map);
 			game.mlx = mlx_init();
 			game.map = malloc(sizeof(t_map));
 			set_values(game.map, argv[1]);

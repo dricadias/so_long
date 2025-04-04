@@ -44,17 +44,17 @@ typedef struct s_data
 	int		endian;
 }	t_data;
 
-typedef struct s_game 
+typedef struct s_game
 {
-    void    *mlx;
-    void    *mlx_win;
-    void    *img_wall;
-    void    *img_floor;
-    void    *img_player;
+	void	*mlx;
+	void	*mlx_win;
+	void	*img_wall;
+	void	*img_floor;
+	void	*img_player;
 	void	*img_coll;
-    void    *img_exit;
-    t_map   *map;
-}   t_game;
+	void	*img_exit;
+	t_map	*map;
+}	t_game;
 
 // ultis
 int		valid_file(char *file);
@@ -71,7 +71,6 @@ void	set_values(t_map *map, char *file);
 
 // mlx
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	put_square(t_data *img, int x, int y, int size, int color);
 void	rendering_map(t_game *game);
 void	load_img(t_game *game);
 

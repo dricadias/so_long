@@ -36,15 +36,15 @@ void	rendering_map(t_game *game)
 		while (y < game->map->width && game->map->matriz[x][y])
 		{
 			if (game->map->matriz[x][y] == '1')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_wall, y * 50, x * 50);
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_wall, y * TILE_SIZE, x * TILE_SIZE);
 			else if (game->map->matriz[x][y] == '0')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_floor, y * 50, x * 50);
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_floor, y * TILE_SIZE, x * TILE_SIZE);
 			else if (game->map->matriz[x][y] == 'C')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_coll, y * 50, x * 50);
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_coll, y * TILE_SIZE, x * TILE_SIZE);
 			else if (game->map->matriz[x][y] == 'P')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_player, y * 50, x * 50);
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_player, y * TILE_SIZE, x * TILE_SIZE);
 			else if (game->map->matriz[x][y] == 'E')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_exit, y * 50, x * 50);
+				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_exit, y * TILE_SIZE, x * TILE_SIZE);
 			y++;
 		}
 		x++;

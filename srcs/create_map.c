@@ -19,7 +19,7 @@ int	get_width(char *content)
 	width = 0;
 	while (content[width] && content[width] != '\n')
 		width++;
-	return(width);
+	return (width);
 }
 
 int	get_height(char *content)

@@ -13,9 +13,8 @@
 #include "../mlx/mlx.h"
 #include "../include/so_long.h"
 #include <unistd.h>
-#include <stdio.h>
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+/*void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -69,7 +68,7 @@ int	color_loop(t_data *img)
 	mlx_put_image_to_window(mlx, mlx_win, img->img, 0, 0);
 	usleep(200000);
 	return (0);
-}
+}*/
 
 /* int main(void)
 {
