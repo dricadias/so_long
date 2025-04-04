@@ -35,6 +35,8 @@ int	get_height(char *content)
 			height++;
 		if (content[i] == '\n' && content[i + 1] == '\n')
 			return (height);
+		if (content[i] == '\n' && content[i + 1] == '\0')
+			return (height);
 		i++;
 	}
 	height++;
