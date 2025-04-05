@@ -6,12 +6,13 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/05 19:38:26 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/05 20:33:27 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// arrumar os returns depois
 void	is_valid_characters(char *content)
 {
 	int	i;
@@ -28,6 +29,25 @@ void	is_valid_characters(char *content)
 		i++;
 	}
 	return ((void)ft_printf("map is valid\n"));
+}
+
+// arrumar os returns depois
+void	is_map_rectangular(char **matriz)
+{
+	int	i;
+	int	len;
+	int	len2;
+
+	i = 0;
+	len = ft_strlen(matriz[0]);
+	while(matriz[i])
+	{
+		len2 = ft_strlen(matriz[i]);
+		if (len != len2)
+			return ((void)ft_printf("map isnt rectangular\n"), exit(EXIT_FAILURE));
+		i++;
+	}
+	return ((void)ft_printf("map is rectangular\n"));
 }
 
 int	is_ber_file(char *file)

@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/05 19:26:39 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/05 20:33:31 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_game
 // ultis
 int		is_ber_file(char *file);
 void	is_valid_characters(char *content);
+void	is_map_rectangular(char **matriz);
 
 // free
 void	free_map(t_map *map);

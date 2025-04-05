@@ -52,6 +52,7 @@ void	set_values(t_map *map, char *file)
 	map->height = get_height(content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
+	is_map_rectangular(map->matriz);
 	free(content);
 }
 
