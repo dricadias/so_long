@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:41:56 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/03 23:36:01 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:53:05 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		ret = valid_file(argv[1]);
+		ret = is_ber_file(argv[1]);
 		if (ret == 1)
 		{
 			//print_map(map);

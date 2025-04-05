@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/03 18:56:53 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:40:37 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef struct s_pos
 
 typedef struct s_map
 {
-	char	**matriz;
 	int		height;
 	int		width;
+	char	**matriz;
 }	t_map;
 
 // struct do teste
@@ -57,7 +57,7 @@ typedef struct s_game
 }	t_game;
 
 // ultis
-int		valid_file(char *file);
+int		is_ber_file(char *file);
 
 // free
 void	free_map(t_map *map);

@@ -6,13 +6,13 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/31 17:02:07 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:39:54 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	valid_file(char *file)
+int	is_ber_file(char *file)
 {
 	int	ber;
 
