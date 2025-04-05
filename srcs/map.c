@@ -6,11 +6,29 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/05 17:39:54 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/05 19:38:26 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	is_valid_characters(char *content)
+{
+	int	i;
+
+	i = 0;
+
+	while (content[i])
+	{
+		if (content[i] != '0' && content[i] != '1' && content[i] != 'P' 
+			&& content[i] != 'E' && content[i] != 'C' && content[i] != '\n')
+		{
+			return ((void)ft_printf("map isnt valid\n"), exit(EXIT_FAILURE));
+		}
+		i++;
+	}
+	return ((void)ft_printf("map is valid\n"));
+}
 
 int	is_ber_file(char *file)
 {

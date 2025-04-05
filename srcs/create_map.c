@@ -48,6 +48,7 @@ void	set_values(t_map *map, char *file)
 	char	*content;
 
 	content = get_content(file);
+	is_valid_characters(content);
 	map->height = get_height(content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
