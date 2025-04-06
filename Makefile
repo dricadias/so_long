@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:03:16 by adias-do          #+#    #+#              #
-#    Updated: 2025/04/03 18:57:48 by adias-do         ###   ########.fr        #
+#    Updated: 2025/04/06 20:12:40 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = srcs/map.c \
 	srcs/create_map.c \
 	srcs/so_long.c \
 	srcs/free.c \
+	srcs/check_path.c \
 	#srcs/testing_mlx.c
 
 OBJS = $(SRCS:.c=.o)
