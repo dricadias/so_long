@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/06 16:14:56 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/06 16:34:42 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ int	is_valid_characters(char *content)
 	return (1);
 }
 
-int	is_map_rectangular(char **matriz)
+int	is_map_rectangular(t_map *map)
 {
 	int	i;
 	int	len;
 	int	len2;
 
 	i = 0;
-	len = ft_strlen(matriz[0]);
-	while (matriz[i])
+	len = ft_strlen(map->matriz[0]);
+	while (map->matriz[i])
 	{
-		len2 = ft_strlen(matriz[i]);
+		len2 = ft_strlen(map->matriz[i]);
 		if (len != len2)
 			return (0);
 		i++;
@@ -47,22 +47,22 @@ int	is_map_rectangular(char **matriz)
 	return (1);
 }
 
-int	check_map_walls(char **matriz, int height, int width)
+int	check_map_walls(t_map *map)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	while (y < width)
+	while (y < map->width)
 	{
-		if (matriz[0][y] != '1' || matriz[height - 1][y] != '1')
+		if (map->matriz[0][y] != '1' || map->matriz[map->height - 1][y] != '1')
 			return (0);
 		y++;
 	}
-	while (x < height)
+	while (x < map->height)
 	{
-		if (matriz[x][0] != '1' || matriz[x][width - 1] != '1')
+		if (map->matriz[x][0] != '1' || map->matriz[x][map->width - 1] != '1')
 			return (0);
 		x++;
 	}
