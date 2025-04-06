@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/06 16:32:56 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/06 17:05:55 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ typedef struct s_pos
 
 typedef struct s_map
 {
-	int		height;
 	int		width;
+	int		height;
+	int		p_count;
+	int		c_count;
+	int		e_count;
 	char	**matriz;
 }	t_map;
 
@@ -61,6 +64,7 @@ int		is_ber_file(char *file);
 int		is_valid_characters(char *content);
 int		is_map_rectangular(t_map *map);
 int		check_map_walls(t_map *map);
+int		count_map_elements(t_map *map);
 
 // free
 void	free_map(t_map *map);

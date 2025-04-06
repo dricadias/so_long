@@ -54,6 +54,7 @@ void	set_values(t_map *map, char *file)
 	map->matriz = ft_split(content, '\n');
 	is_map_rectangular(map);
 	check_map_walls(map);
+	count_map_elements(map);
 	free(content);
 }
 
