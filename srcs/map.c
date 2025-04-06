@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/05 22:44:10 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/06 06:28:17 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,29 @@ void	is_map_rectangular(char **matriz)
 		i++;
 	}
 	return ((void)ft_printf("map is rectangular\n"));
+}
+
+// arrumar os returns depois
+void	check_map_walls(char **matriz, int height, int width)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < width)
+	{
+		if (matriz[0][y] != '1' || matriz[height - 1][y] != '1')
+			return ((void)ft_printf("map isnt surrounded by walls\n"), exit(EXIT_FAILURE));
+		y++;
+	}
+	while (x < height)
+	{
+		if (matriz[x][0] != '1' || matriz[x][width - 1] != '1')
+			return ((void)ft_printf("map isnt surrounded by walls2\n"), exit(EXIT_FAILURE));
+		x++;
+	}
+	return ((void)ft_printf("map is surrounded by walls\n"));
 }
 
 int	is_ber_file(char *file)
