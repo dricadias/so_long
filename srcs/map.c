@@ -6,14 +6,13 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/06 06:28:17 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/06 16:14:56 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// arrumar os returns depois
-void	is_valid_characters(char *content)
+int	is_valid_characters(char *content)
 {
 	int	i;
 
@@ -23,15 +22,14 @@ void	is_valid_characters(char *content)
 		if (content[i] != '0' && content[i] != '1' && content[i] != 'P'
 			&& content[i] != 'E' && content[i] != 'C' && content[i] != '\n')
 		{
-			return ((void)ft_printf("map isnt valid\n"), exit(EXIT_FAILURE));
+			return (0);
 		}
 		i++;
 	}
-	return ((void)ft_printf("map is valid\n"));
+	return (1);
 }
 
-// arrumar os returns depois
-void	is_map_rectangular(char **matriz)
+int	is_map_rectangular(char **matriz)
 {
 	int	i;
 	int	len;
@@ -43,14 +41,13 @@ void	is_map_rectangular(char **matriz)
 	{
 		len2 = ft_strlen(matriz[i]);
 		if (len != len2)
-			return ((void)ft_printf("map isnt rectangular\n"), exit(EXIT_FAILURE));
+			return (0);
 		i++;
 	}
-	return ((void)ft_printf("map is rectangular\n"));
+	return (1);
 }
 
-// arrumar os returns depois
-void	check_map_walls(char **matriz, int height, int width)
+int	check_map_walls(char **matriz, int height, int width)
 {
 	int	x;
 	int	y;
@@ -60,16 +57,16 @@ void	check_map_walls(char **matriz, int height, int width)
 	while (y < width)
 	{
 		if (matriz[0][y] != '1' || matriz[height - 1][y] != '1')
-			return ((void)ft_printf("map isnt surrounded by walls\n"), exit(EXIT_FAILURE));
+			return (0);
 		y++;
 	}
 	while (x < height)
 	{
 		if (matriz[x][0] != '1' || matriz[x][width - 1] != '1')
-			return ((void)ft_printf("map isnt surrounded by walls2\n"), exit(EXIT_FAILURE));
+			return (0);
 		x++;
 	}
-	return ((void)ft_printf("map is surrounded by walls\n"));
+	return (1);
 }
 
 int	is_ber_file(char *file)
