@@ -46,8 +46,6 @@ int	get_height(char *content)
 void	set_values(t_map *map, char *file)
 {
 	char	*content;
-	int x = 0;
-	int y;
 
 	content = get_content(file);
 	is_valid_characters(content);
