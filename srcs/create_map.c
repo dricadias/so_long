@@ -52,9 +52,12 @@ void	set_values(t_map *map, char *file)
 	map->height = get_height(content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
+	map->flood = ft_split(content, '\n');
 	is_map_rectangular(map);
 	check_map_walls(map);
 	count_map_elements(map);
+	fill(map, map->player_pos.x, map->player_pos.y);
+	is_path_valid(map->flood);
 	free(content);
 }
 
