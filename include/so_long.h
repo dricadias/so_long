@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adias-do <adias-do@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/07 14:35:04 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:35:38 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		is_valid_characters(char *content);
 int		is_map_rectangular(t_map *map);
 int		check_map_walls(t_map *map);
 int		count_map_elements(t_map *map);
+int		check_map_elements(t_map *map);
 int		is_path_valid(char **fill);
 
 // utils
@@ -83,7 +84,6 @@ char	*get_content(char *file);
 void	set_values(t_map *map, char *file);
 
 // mlx
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	rendering_map(t_game *game);
 void	load_img(t_game *game);
 
