@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/06 17:39:04 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:34:28 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,17 @@ int	count_map_elements(t_map *map)
 		}
 		x++;
 	}
+	return (1);
+}
+
+int	check_map_elements(t_map *map)
+{
+	if (map->p_count != 1)
+		return (0/*erro do player*/);
+	if (map->c_count < 1)
+		return (0/*erro de coletavel*/);
+	if (map->e_count != 1)
+		return (0/*erro de saida*/);
 	return (1);
 }
 
