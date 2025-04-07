@@ -46,6 +46,8 @@ int	get_height(char *content)
 void	set_values(t_map *map, char *file)
 {
 	char	*content;
+	int x = 0;
+	int y;
 
 	content = get_content(file);
 	is_valid_characters(content);
@@ -56,7 +58,8 @@ void	set_values(t_map *map, char *file)
 	is_map_rectangular(map);
 	check_map_walls(map);
 	count_map_elements(map);
-	fill(map, map->player_pos.x, map->player_pos.y);
+	find_player_position(map);
+	fill(map->flood, map->player_pos.x, map->player_pos.y);
 	is_path_valid(map->flood);
 	free(content);
 }

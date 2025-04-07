@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: adias-do <adias-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/06 21:26:14 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/07 14:35:04 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		is_path_valid(char **fill);
 
 // utils
 void	find_player_position(t_map *map);
-void	fill(t_map *map, int x, int y);
+void	fill(char **flood, int x, int y);
 
 // free
 void	free_map(t_map *map);
