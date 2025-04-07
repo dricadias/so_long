@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:28:03 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/07 14:47:20 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:40:10 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	is_path_valid(char **fill)
 	int	y;
 
 	x = 0;
-	while(fill[x])
+	while (fill[x])
 	{
 		y = 0;
-		while(fill[x][y])
+		while (fill[x][y])
 		{
 			if (fill[x][y] == 'C' || fill[x][y] == 'E')
 			{
