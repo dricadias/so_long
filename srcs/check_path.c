@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:28:03 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/07 18:40:10 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:48:28 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ int	is_path_valid(char **fill)
 		{
 			if (fill[x][y] == 'C' || fill[x][y] == 'E')
 			{
-				ft_printf("nao da\n");
-				exit(EXIT_FAILURE);
+				return (0/*erro de mapa nao jogavel*/);
 			}
 			y++;
 		}

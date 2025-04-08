@@ -27,3 +27,23 @@ void	free_map(t_map *map)
 	free(map->matriz);
 	map->matriz = NULL;
 }
+
+void	ft_exit(char *error_msg, t_map *map)
+{
+	int	i;
+
+	i = 0;
+	ft_putendl_fd(error_msg, 2);
+	if (!map)
+	{
+		if (!map->matriz)
+		{
+			free_map(map);
+		}
+		/* if (!map->flood)
+		{
+			free_map(map->flood);
+		} */
+		exit(EXIT_FAILURE);
+	}
+}
