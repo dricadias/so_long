@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:27:04 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/03 23:31:33 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:58:41 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	load_img(t_game *game)
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_vermelho.xpm", &width, &height);
 }
 
-void	rendering_map(t_game *game)
+void	render_map(t_game *game)
 {
 	int	x;
 	int	y;
