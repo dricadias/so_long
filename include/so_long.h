@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/08 18:07:43 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 11:04:52 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ void	find_player_position(t_map *map);
 void	fill(char **flood, int x, int y);
 
 // free
-void	free_map(t_map *map);
-void	ft_exit(char *error_msg, t_map *map);
+void	free_matriz(char **matriz);
+void	ft_exit(char *error_msg, t_map *map, int status);
 
 // matriz
 int		get_width(char *content);

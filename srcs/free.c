@@ -12,38 +12,36 @@
 
 #include "../include/so_long.h"
 
-void	free_map(t_map *map)
+void	free_matriz(char **matriz)
 {
 	int	i;
 
-	if (!map || !map->matriz)
-		return ;
 	i = 0;
-	while (map->matriz[i])
+	while(matriz[i])
 	{
-		free(map->matriz[i]);
+		free(matriz[i]);
 		i++;
 	}
-	free(map->matriz);
-	map->matriz = NULL;
+	free(matriz);
 }
 
-void	ft_exit(char *error_msg, t_map *map)
+void	ft_exit(char *error_msg, t_map *map, int status)
 {
 	int	i;
 
 	i = 0;
 	ft_putendl_fd(error_msg, 2);
-	if (!map)
+	if (map)
 	{
-		if (!map->matriz)
+		if (map->matriz)
 		{
-			free_map(map);
+			free_matriz(map->matriz);
 		}
-		/* if (!map->flood)
+		if (map->flood)
 		{
-			free_map(map->flood);
-		} */
-		exit(EXIT_FAILURE);
+			free_matriz(map->flood);
+		}
+		free(map);
 	}
+	exit(status);
 }

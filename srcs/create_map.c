@@ -54,7 +54,7 @@ void	set_values(t_map *map, char *file)
 	map->matriz = ft_split(content, '\n');
 	map->flood = ft_split(content, '\n');
 	if (!is_map_rectangular(map))
-		ft_exit(ERROR_RECTANGLE, map);
+		ft_exit(ERROR_RECTANGLE, map, 1);
 	check_map_walls(map);
 	count_map_elements(map);
 	find_player_position(map);
