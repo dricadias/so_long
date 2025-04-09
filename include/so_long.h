@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 18:32:33 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:44:44 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,11 @@ void	load_img(t_game *game);
 
 // mlx moves
 int		handle_input(int keycode, t_game *game);
+
+// moves
 void	move_up(t_game *game);
+void	move_left(t_game *game);
+void	move_down(t_game *game);
+void	move_right(t_game *game);
 
 #endif
