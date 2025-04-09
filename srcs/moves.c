@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:09:43 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 23:00:52 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 23:54:49 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	move_up(t_game *game)
 	if (matriz[pos.x - 1][pos.y] == 'E')
 	{
 		if (game->map->c_count == 0)
-			ft_exit(GAME_WON, game->map, 0);
+			exit_game(GAME_WON, game, 0);
 		else
 			return;
 	}
@@ -58,7 +58,7 @@ void	move_left(t_game *game)
 	if (matriz[pos.x][pos.y - 1] == 'E')
 	{
 		if (game->map->c_count == 0)
-			ft_exit(GAME_WON, game->map, 0);
+			exit_game(GAME_WON, game, 0);
 		else
 			return;
 	}
@@ -87,7 +87,7 @@ void	move_down(t_game *game)
 	if (matriz[pos.x + 1][pos.y] == 'E')
 	{
 		if (game->map->c_count == 0)
-			ft_exit(GAME_WON, game->map, 0);
+			exit_game(GAME_WON, game, 0);
 		else
 			return;
 	}
@@ -116,7 +116,7 @@ void	move_right(t_game *game)
 	if (matriz[pos.x][pos.y + 1] == 'E')
 	{
 		if (game->map->c_count == 0)
-			ft_exit(GAME_WON, game->map, 0);
+			exit_game(GAME_WON, game, 0);
 		else
 			return;
 	}
