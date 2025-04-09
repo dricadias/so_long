@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 11:04:52 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:04:20 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 # include <fcntl.h>
 # define TILE_SIZE 50
 
-# define ERROR_ARGS "Error: invalid amount of arguments.\n"
-# define ERROR_INVALID_CHAR "Error: map has invalid chars.\n"
-# define ERROR_INVALID_WALL "Error: map must be surrounded by walls.\n"
+# define ERROR_ARGS "Error: invalid amount of arguments."
+# define ERROR_INVALID_CHAR "Error: map has invalid chars."
+# define ERROR_INVALID_WALL "Error: map must be surrounded by walls."
 # define ERROR_RECTANGLE "Error: map must be rectangular."
-# define ERROR_PLAYER "Error: map can only have one player.\n"
-# define ERROR_COLL "Error: map needs at least 1 collectible.\n"
-# define ERROR_EXIT "Error: map can only have one exit.\n"
+# define ERROR_PLAYER "Error: map can only have one player."
+# define ERROR_COLL "Error: map needs at least 1 collectible."
+# define ERROR_EXIT "Error: map can only have one exit."
 # define ERROR_PATH "Error: invalid path."
 
 typedef struct s_pos
@@ -76,7 +76,6 @@ int		is_valid_characters(char *content);
 int		is_map_rectangular(t_map *map);
 int		check_map_walls(t_map *map);
 int		count_map_elements(t_map *map);
-int		check_map_elements(t_map *map);
 int		is_path_valid(char **fill);
 int		validate_map(t_map *map);
 

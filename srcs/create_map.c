@@ -48,20 +48,18 @@ void	set_values(t_map *map, char *file)
 	char	*content;
 
 	content = get_content(file);
-	is_valid_characters(content);
+	if (!is_valid_characters(content))
+		ft_exit(ERROR_INVALID_CHAR, NULL, 1);
 	map->height = get_height(content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
 	map->flood = ft_split(content, '\n');
-	if (!is_map_rectangular(map))
-		ft_exit(ERROR_RECTANGLE, map, 1);
-	check_map_walls(map);
 	count_map_elements(map);
+	validate_map(map);
 	find_player_position(map);
 	fill(map->flood, map->player_pos.x, map->player_pos.y);
-	is_path_valid(map->flood);
-	/* if (validate_map(map) == 0)
-		exit(EXIT_FAILURE); */
+	if (is_path_valid(map->flood) == 0)
+		ft_exit(ERROR_PATH, map, 1);
 	free(content);
 }
 

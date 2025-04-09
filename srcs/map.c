@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/08 18:03:06 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:04:05 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,25 +93,18 @@ int	count_map_elements(t_map *map)
 	return (1);
 }
 
-/* int	validate_map(t_map *map)
+int	validate_map(t_map *map)
 {
+	if (!is_map_rectangular(map))
+		ft_exit(ERROR_RECTANGLE, map, 1);
 	if (!check_map_walls(map))
-		return (ft_printf((ERROR_INVALID_WALL), 0));
-	else if (!check_map_elements(map))
-		return (0);
-	else if (!is_path_valid(map->flood))
-		return (ft_printf((ERROR_PATH), 0));
-	return (1);
-}*/
-
-int	check_map_elements(t_map *map)
-{
+		ft_exit(ERROR_INVALID_WALL, map, 1);
 	if (map->p_count != 1)
-		return (ft_printf(ERROR_PLAYER), 0);
+		ft_exit(ERROR_PLAYER, map, 1);
 	if (map->c_count < 1)
-		return (ft_printf(ERROR_COLL), 0);
+		ft_exit(ERROR_COLL, map, 1);
 	if (map->e_count != 1)
-		return (ft_printf(ERROR_EXIT), 0);
+		ft_exit(ERROR_EXIT, map, 1);
 	return (1);
 }
 
