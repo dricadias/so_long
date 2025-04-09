@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 15:04:20 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:32:33 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
+# include <X11/keysym.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <errno.h>
@@ -43,6 +44,7 @@ typedef struct s_map
 	int		p_count;
 	int		c_count;
 	int		e_count;
+	int		move_count;
 	char	**matriz;
 	char	**flood;
 	t_pos	player_pos;
@@ -94,7 +96,11 @@ char	*get_content(char *file);
 void	set_values(t_map *map, char *file);
 
 // mlx
-void	rendering_map(t_game *game);
+void	render_map(t_game *game);
 void	load_img(t_game *game);
+
+// mlx moves
+int		handle_input(int keycode, t_game *game);
+void	move_up(t_game *game);
 
 #endif

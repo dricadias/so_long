@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:41:56 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 11:19:50 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:13:48 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ int	main(int argc, char **argv)
 	game.map = malloc(sizeof(t_map));
 	set_values(game.map, argv[1]);
 	game.mlx_win = mlx_new_window(game.mlx, game.map->width * TILE_SIZE, game.map->height * TILE_SIZE, "so_long");
+	mlx_key_hook(game.mlx_win, handle_input, &game);
 	load_img(&game);
-	rendering_map(&game);
+	render_map(&game);
 	mlx_loop(game.mlx);
 	ft_exit("sucesso", &map, 0);
 	return (0);
