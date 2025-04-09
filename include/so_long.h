@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 18:44:44 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:59:42 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <errno.h>
 # include <fcntl.h>
-# define TILE_SIZE 50
+# define TILE 50
 
 # define ERROR_ARGS "Error: invalid amount of arguments."
 # define ERROR_INVALID_CHAR "Error: map has invalid chars."
@@ -30,6 +30,7 @@
 # define ERROR_COLL "Error: map needs at least 1 collectible."
 # define ERROR_EXIT "Error: map can only have one exit."
 # define ERROR_PATH "Error: invalid path."
+# define GAME_WON "Well done! You've won the game!"
 
 typedef struct s_pos
 {
@@ -63,12 +64,12 @@ typedef struct s_data
 typedef struct s_game
 {
 	void	*mlx;
-	void	*mlx_win;
-	void	*img_wall;
-	void	*img_floor;
-	void	*img_player;
-	void	*img_coll;
-	void	*img_exit;
+	void	*win;
+	void	*wall;
+	void	*floor;
+	void	*player;
+	void	*coll;
+	void	*exit;
 	t_map	*map;
 }	t_game;
 
