@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:27:04 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 17:58:41 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:38:57 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	load_img(t_game *game)
 	int	width;
 	int	height;
 
-	game->img_wall = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_cinza50.xpm", &width, &height);
-	game->img_floor = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_verde.xpm", &width, &height);
-	game->img_coll = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_amarelo.xpm", &width, &height);
-	game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_azul.xpm", &width, &height);
-	game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_vermelho.xpm", &width, &height);
+	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_cinza50.xpm", &width, &height);
+	game->floor = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_verde.xpm", &width, &height);
+	game->coll = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_amarelo.xpm", &width, &height);
+	game->player = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_azul.xpm", &width, &height);
+	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/quadrado_vermelho.xpm", &width, &height);
 }
 
 void	render_map(t_game *game)
@@ -36,15 +36,15 @@ void	render_map(t_game *game)
 		while (y < game->map->width && game->map->matriz[x][y])
 		{
 			if (game->map->matriz[x][y] == '1')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_wall, y * TILE_SIZE, x * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->win, game->wall, y * TILE, x * TILE);
 			else if (game->map->matriz[x][y] == '0')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_floor, y * TILE_SIZE, x * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->win, game->floor, y * TILE, x * TILE);
 			else if (game->map->matriz[x][y] == 'C')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_coll, y * TILE_SIZE, x * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->win, game->coll, y * TILE, x * TILE);
 			else if (game->map->matriz[x][y] == 'P')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_player, y * TILE_SIZE, x * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->win, game->player, y * TILE, x * TILE);
 			else if (game->map->matriz[x][y] == 'E')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->img_exit, y * TILE_SIZE, x * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->win, game->exit, y * TILE, x * TILE);
 			y++;
 		}
 		x++;
