@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:03:16 by adias-do          #+#    #+#              #
-#    Updated: 2025/04/09 18:34:18 by adias-do         ###   ########.fr        #
+#    Updated: 2025/04/09 23:43:20 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ SRCS = srcs/map.c \
 	srcs/check_path.c \
 	srcs/handle_moves.c \
 	srcs/moves.c \
+	srcs/init_structs.c \
 	#srcs/testing_mlx.c
-
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -L mlx

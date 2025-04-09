@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 22:59:42 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/09 23:53:53 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ typedef struct s_game
 	t_map	*map;
 }	t_game;
 
+// init structs
+t_map	*init_map(void);
+t_game	*init_game(void);
+
 // validation
 int		is_ber_file(char *file);
 int		is_valid_characters(char *content);
@@ -89,6 +93,9 @@ void	fill(char **flood, int x, int y);
 // free
 void	free_matriz(char **matriz);
 void	ft_exit(char *error_msg, t_map *map, int status);
+void	free_images(t_game *game);
+void	free_all(t_game *game);
+void	exit_game(char *msg, t_game *game, int status);
 
 // matriz
 int		get_width(char *content);
