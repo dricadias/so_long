@@ -27,9 +27,6 @@ void	free_matriz(char **matriz)
 
 void	ft_exit(char *error_msg, t_map *map, int status)
 {
-	int	i;
-
-	i = 0;
 	ft_putendl_fd(error_msg, 2);
 	if (map)
 	{
