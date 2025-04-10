@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:43:05 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 18:43:41 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 00:10:32 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int handle_input(int keycode, t_game *game)
 {
-/* 	if (keycode == XK_Escape)
-		close_window(); */
+	if (keycode == XK_Escape)
+	{
+		free_all(game);
+		exit(0);
+	}
 	if (keycode == XK_W || keycode == XK_w || keycode == XK_Up)
 		move_up(game);
 	if (keycode == XK_A || keycode == XK_a || keycode == XK_Left)
