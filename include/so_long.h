@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 23:53:53 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:04:14 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,6 @@ typedef struct s_map
 	char	**flood;
 	t_pos	player_pos;
 }	t_map;
-
-// struct do teste
-typedef struct s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
 
 typedef struct s_game
 {
