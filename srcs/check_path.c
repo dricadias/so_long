@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:28:03 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 17:25:07 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/11 00:37:47 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,14 @@ void	find_player_position(t_map *map)
 
 void	fill(char **flood, int x, int y)
 {
-	if (x < 0 || y < 0 || flood[x][y] == '1' || flood[x][y] == 'F')
+	if (x < 0 || y < 0 || flood[x][y] == '1' || flood[x][y] == 'F'
+		|| flood[x][y] == 'e')
 		return ;
+	if (flood[x][y] == 'E')
+	{
+		flood[x][y] = 'e';
+		return ;
+	}
 	flood[x][y] = 'F';
 	fill(flood, x + 1, y);
 	fill(flood, x - 1, y);
@@ -57,7 +63,7 @@ int	is_path_valid(char **fill)
 		y = 0;
 		while (fill[x][y])
 		{
-			if (fill[x][y] == 'C' || fill[x][y] == 'E')
+			if (fill[x][y] == 'C')
 			{
 				return (0);
 			}
