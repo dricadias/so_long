@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 17:49:21 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:10:02 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define TILE 50
 
 # define ERROR_ARGS "Error: invalid amount of arguments."
+# define ERROR_FILE "Error: invalid file."
+# define ERROR_READ "Error: invalid file read."
 # define ERROR_INVALID_CHAR "Error: map has invalid chars."
 # define ERROR_INVALID_WALL "Error: map must be surrounded by walls."
 # define ERROR_RECTANGLE "Error: map must be rectangular."
@@ -90,8 +92,8 @@ void	exit_game(char *msg, t_game *game, int status);
 // matriz
 int		get_width(char *content);
 int		get_height(char *content);
-char	*get_content(char *file);
-void	set_values(t_map *map, char *file);
+char	*get_content(char *file, t_game *game);
+void	set_values(t_game *game, t_map *map, char *file);
 
 // mlx
 void	render_map(t_game *game);

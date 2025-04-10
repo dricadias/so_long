@@ -67,7 +67,7 @@ int	count_map_elements(t_map *map)
 	return (1);
 }
 
-char	*get_content(char *file)
+char	*get_content(char *file, t_game *game)
 {
 	int		fd;
 	char	*temp;
@@ -76,7 +76,7 @@ char	*get_content(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (NULL);
+		exit_game(ERROR_READ, game, 1);
 	content = NULL;
 	line = get_next_line(fd);
 	while (line)
@@ -96,13 +96,13 @@ char	*get_content(char *file)
 	return (content);
 }
 
-void	set_values(t_map *map, char *file)
+void	set_values(t_game *game, t_map *map, char *file)
 {
 	char	*content;
 
-	content = get_content(file);
+	content = get_content(file, game);
 	if (!is_valid_characters(content))
-		ft_exit(ERROR_INVALID_CHAR, map, 1);
+		exit_game(ERROR_INVALID_CHAR, game, 1);
 	map->height = get_height(content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
@@ -112,6 +112,6 @@ void	set_values(t_map *map, char *file)
 	find_player_position(map);
 	fill(map->flood, map->player_pos.x, map->player_pos.y);
 	if (is_path_valid(map->flood) == 0)
-		ft_exit(ERROR_PATH, map, 1);
+		exit_game(ERROR_PATH, game, 1);
 	free(content);
 }
