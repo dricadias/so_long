@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:09:43 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 23:54:49 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:26:27 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	move_up(t_game *game)
 		if (game->map->c_count == 0)
 			exit_game(GAME_WON, game, 0);
 		else
-			return;
+			return ;
 	}
 	matriz[pos.x - 1][pos.y] = 'P';
 	matriz[pos.x][pos.y] = '0';
@@ -60,7 +60,7 @@ void	move_left(t_game *game)
 		if (game->map->c_count == 0)
 			exit_game(GAME_WON, game, 0);
 		else
-			return;
+			return ;
 	}
 	matriz[pos.x][pos.y - 1] = 'P';
 	matriz[pos.x][pos.y] = '0';
@@ -89,7 +89,7 @@ void	move_down(t_game *game)
 		if (game->map->c_count == 0)
 			exit_game(GAME_WON, game, 0);
 		else
-			return;
+			return ;
 	}
 	matriz[pos.x + 1][pos.y] = 'P';
 	matriz[pos.x][pos.y] = '0';
@@ -118,7 +118,7 @@ void	move_right(t_game *game)
 		if (game->map->c_count == 0)
 			exit_game(GAME_WON, game, 0);
 		else
-			return;
+			return ;
 	}
 	matriz[pos.x][pos.y + 1] = 'P';
 	matriz[pos.x][pos.y] = '0';

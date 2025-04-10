@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 17:04:14 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:49:21 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,12 @@ void	set_values(t_map *map, char *file);
 // mlx
 void	render_map(t_game *game);
 void	load_img(t_game *game);
+	// render window
+void	render_wall(t_game *game);
+void	render_floor(t_game *game);
+void	render_coll(t_game *game);
+void	render_player(t_game *game);
+void	render_exit(t_game *game);
 
 // mlx moves
 int		handle_input(int keycode, t_game *game);

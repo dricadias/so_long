@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 15:04:05 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:28:15 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,30 +64,6 @@ int	check_map_walls(t_map *map)
 	{
 		if (map->matriz[x][0] != '1' || map->matriz[x][map->width - 1] != '1')
 			return (0);
-		x++;
-	}
-	return (1);
-}
-
-int	count_map_elements(t_map *map)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < map->height)
-	{
-		y = 0;
-		while (y < map->width)
-		{
-			if (map->matriz[x][y] == 'P')
-				map->p_count++;
-			else if (map->matriz[x][y] == 'C')
-				map->c_count++;
-			else if (map->matriz[x][y] == 'E')
-				map->e_count++;
-			y++;
-		}
 		x++;
 	}
 	return (1);

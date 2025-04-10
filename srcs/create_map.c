@@ -43,24 +43,28 @@ int	get_height(char *content)
 	return (height);
 }
 
-void	set_values(t_map *map, char *file)
+int	count_map_elements(t_map *map)
 {
-	char	*content;
+	int	x;
+	int	y;
 
-	content = get_content(file);
-	if (!is_valid_characters(content))
-		ft_exit(ERROR_INVALID_CHAR, NULL, 1);
-	map->height = get_height(content);
-	map->width = get_width(content);
-	map->matriz = ft_split(content, '\n');
-	map->flood = ft_split(content, '\n');
-	count_map_elements(map);
-	validate_map(map);
-	find_player_position(map);
-	fill(map->flood, map->player_pos.x, map->player_pos.y);
-	if (is_path_valid(map->flood) == 0)
-		ft_exit(ERROR_PATH, map, 1);
-	free(content);
+	x = 0;
+	while (x < map->height)
+	{
+		y = 0;
+		while (y < map->width)
+		{
+			if (map->matriz[x][y] == 'P')
+				map->p_count++;
+			else if (map->matriz[x][y] == 'C')
+				map->c_count++;
+			else if (map->matriz[x][y] == 'E')
+				map->e_count++;
+			y++;
+		}
+		x++;
+	}
+	return (1);
 }
 
 char	*get_content(char *file)
@@ -90,4 +94,24 @@ char	*get_content(char *file)
 	}
 	close(fd);
 	return (content);
+}
+
+void	set_values(t_map *map, char *file)
+{
+	char	*content;
+
+	content = get_content(file);
+	if (!is_valid_characters(content))
+		ft_exit(ERROR_INVALID_CHAR, map, 1);
+	map->height = get_height(content);
+	map->width = get_width(content);
+	map->matriz = ft_split(content, '\n');
+	map->flood = ft_split(content, '\n');
+	count_map_elements(map);
+	validate_map(map);
+	find_player_position(map);
+	fill(map->flood, map->player_pos.x, map->player_pos.y);
+	if (is_path_valid(map->flood) == 0)
+		ft_exit(ERROR_PATH, map, 1);
+	free(content);
 }

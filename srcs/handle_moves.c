@@ -6,13 +6,13 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:43:05 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 00:10:32 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:30:40 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int handle_input(int keycode, t_game *game)
+int	handle_input(int keycode, t_game *game)
 {
 	if (keycode == XK_Escape)
 	{

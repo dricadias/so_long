@@ -17,7 +17,7 @@ void	free_matriz(char **matriz)
 	int	i;
 
 	i = 0;
-	while(matriz[i])
+	while (matriz[i])
 	{
 		free(matriz[i]);
 		i++;
@@ -44,7 +44,7 @@ void	ft_exit(char *error_msg, t_map *map, int status)
 }
 
 void	free_images(t_game *game)
-{	
+{
 	if (game->wall)
 		mlx_destroy_image(game->mlx, game->wall);
 	if (game->floor)

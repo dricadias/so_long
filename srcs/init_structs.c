@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 23:27:15 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 23:42:06 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:31:09 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_map	*init_map(void)
 t_game	*init_game(void)
 {
 	t_game	*game;
-	
+
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (NULL);
@@ -45,7 +45,7 @@ t_game	*init_game(void)
 	game->floor = NULL;
 	game->player = NULL;
 	game->coll = NULL;
-	game->exit= NULL;
+	game->exit = NULL;
 	game->map = init_map();
 	if (!game->map)
 	{
