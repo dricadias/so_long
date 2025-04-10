@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:41:56 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/09 23:49:08 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:16:32 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	main(int argc, char **argv)
 {
 	t_game	*game;
 
+	game = NULL;
 	if (argc != 2)
-		return (ft_printf(ERROR_ARGS), EXIT_FAILURE);
+		exit_game(ERROR_ARGS, game, EXIT_FAILURE);
 	is_ber_file(argv[1]);
 	game = init_game();
 	if (!game)
