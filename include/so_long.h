@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 18:10:02 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 19:54:14 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		is_map_rectangular(t_map *map);
 int		check_map_walls(t_map *map);
 int		count_map_elements(t_map *map);
 int		is_path_valid(char **fill);
-int		validate_map(t_map *map);
+int		validate_map(t_game *game, t_map *map);
 
 // utils
 void	find_player_position(t_map *map);

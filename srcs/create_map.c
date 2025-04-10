@@ -102,16 +102,19 @@ void	set_values(t_game *game, t_map *map, char *file)
 
 	content = get_content(file, game);
 	if (!is_valid_characters(content))
+	{
+		free(content);
 		exit_game(ERROR_INVALID_CHAR, game, 1);
+	}
 	map->height = get_height(content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
 	map->flood = ft_split(content, '\n');
+	free(content);
 	count_map_elements(map);
-	validate_map(map);
+	validate_map(game, map);
 	find_player_position(map);
 	fill(map->flood, map->player_pos.x, map->player_pos.y);
 	if (is_path_valid(map->flood) == 0)
 		exit_game(ERROR_PATH, game, 1);
-	free(content);
 }

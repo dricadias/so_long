@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 17:28:15 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/10 19:28:54 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,18 @@ int	check_map_walls(t_map *map)
 	return (1);
 }
 
-int	validate_map(t_map *map)
+int	validate_map(t_game *game, t_map *map)
 {
 	if (!is_map_rectangular(map))
-		ft_exit(ERROR_RECTANGLE, map, 1);
+		exit_game(ERROR_RECTANGLE, game, 1);
 	if (!check_map_walls(map))
-		ft_exit(ERROR_INVALID_WALL, map, 1);
+		exit_game(ERROR_INVALID_WALL, game, 1);
 	if (map->p_count != 1)
-		ft_exit(ERROR_PLAYER, map, 1);
+		exit_game(ERROR_PLAYER, game, 1);
 	if (map->c_count < 1)
-		ft_exit(ERROR_COLL, map, 1);
+		exit_game(ERROR_COLL, game, 1);
 	if (map->e_count != 1)
-		ft_exit(ERROR_EXIT, map, 1);
+		exit_game(ERROR_EXIT, game, 1);
 	return (1);
 }
 
