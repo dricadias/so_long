@@ -38,15 +38,13 @@ int	get_height(t_game *game, char *content)
 	{
 		if (content[i] == '\n')
 			height++;
-		if ((content[i] == '\n' && content[i + 1] == '\n')
-			|| (content[i] == '\n' && content[i + 1] == '\0'))
+		if (content[i] == '\n' && content[i + 1] == '\n')
 		{
 			free(content);
 			exit_game(ERROR_NEWLINE, game, 1);
 		}
 		i++;
 	}
-	height++;
 	return (height);
 }
 
