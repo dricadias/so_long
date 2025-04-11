@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/11 21:09:10 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/11 21:15:00 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
+# include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdlib.h>
 # include <stdio.h>
