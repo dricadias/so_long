@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:41:56 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/11 11:35:38 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/11 21:07:55 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	game->win = mlx_new_window(game->mlx, game->map->width * TILE, \
 		game->map->height * TILE, "so_long");
 	mlx_key_hook(game->win, handle_input, game);
+	mlx_hook(game->win, 17, 0, close_window, game);
 	load_img(game);
 	render_map(game);
 	mlx_loop(game->mlx);

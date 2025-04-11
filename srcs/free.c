@@ -25,24 +25,6 @@ void	free_matriz(char **matriz)
 	free(matriz);
 }
 
-void	ft_exit(char *error_msg, t_map *map, int status)
-{
-	ft_putendl_fd(error_msg, 2);
-	if (map)
-	{
-		if (map->matriz)
-		{
-			free_matriz(map->matriz);
-		}
-		if (map->flood)
-		{
-			free_matriz(map->flood);
-		}
-		free(map);
-	}
-	exit(status);
-}
-
 void	free_images(t_game *game)
 {
 	if (game->wall)
@@ -82,7 +64,16 @@ void	free_all(t_game *game)
 
 void	exit_game(char *msg, t_game *game, int status)
 {
-	ft_putendl_fd(msg, 2);
+	if (msg)
+		ft_putendl_fd(msg, 2);
 	free_all(game);
 	exit(status);
+}
+
+int	close_window(t_game *game)
+{
+	exit_game(NULL, game, 1);
+	mlx_destroy_window(game->mlx, game->win);
+	exit(0);
+	return (0);
 }

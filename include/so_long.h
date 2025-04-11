@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/11 12:24:54 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/11 21:09:10 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ void	fill(char **flood, int x, int y);
 
 // free
 void	free_matriz(char **matriz);
-void	ft_exit(char *error_msg, t_map *map, int status);
 void	free_images(t_game *game);
 void	free_all(t_game *game);
 void	exit_game(char *msg, t_game *game, int status);
+int		close_window(t_game *game);
 
 // matriz
 int		get_width(char *content);
@@ -107,10 +107,8 @@ void	render_coll(t_game *game);
 void	render_player(t_game *game);
 void	render_exit(t_game *game);
 
-// mlx moves
-int		handle_input(int keycode, t_game *game);
-
 // moves
+int		handle_input(int keycode, t_game *game);
 void	move_up(t_game *game);
 void	move_left(t_game *game);
 void	move_down(t_game *game);
