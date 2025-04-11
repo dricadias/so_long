@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:08:53 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 19:54:14 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:24:54 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@
 # define ERROR_READ "Error: invalid file read."
 # define ERROR_INVALID_CHAR "Error: map has invalid chars."
 # define ERROR_INVALID_WALL "Error: map must be surrounded by walls."
+# define ERROR_NEWLINE "Error: map has new lines."
 # define ERROR_RECTANGLE "Error: map must be rectangular."
 # define ERROR_PLAYER "Error: map can only have one player."
 # define ERROR_COLL "Error: map needs at least 1 collectible."
 # define ERROR_EXIT "Error: map can only have one exit."
 # define ERROR_PATH "Error: invalid path."
+# define ERROR_IMG "Error: image failed to load."
 # define GAME_WON "Well done! You've won the game!"
 
 typedef struct s_pos
@@ -91,7 +93,7 @@ void	exit_game(char *msg, t_game *game, int status);
 
 // matriz
 int		get_width(char *content);
-int		get_height(char *content);
+int		get_height(t_game *game, char *content);
 char	*get_content(char *file, t_game *game);
 void	set_values(t_game *game, t_map *map, char *file);
 

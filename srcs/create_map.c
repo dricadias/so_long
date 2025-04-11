@@ -22,21 +22,28 @@ int	get_width(char *content)
 	return (width);
 }
 
-int	get_height(char *content)
+int	get_height(t_game *game, char *content)
 {
 	int	i;
 	int	height;
 
 	i = 0;
 	height = 0;
+	if (content[i] == '\n')
+	{
+		free(content);
+		exit_game(ERROR_NEWLINE, game, 1);
+	}
 	while (content[i])
 	{
 		if (content[i] == '\n')
 			height++;
-		if (content[i] == '\n' && content[i + 1] == '\n')
-			return (height);
-		if (content[i] == '\n' && content[i + 1] == '\0')
-			return (height);
+		if ((content[i] == '\n' && content[i + 1] == '\n')
+			|| (content[i] == '\n' && content[i + 1] == '\0'))
+		{
+			free(content);
+			exit_game(ERROR_NEWLINE, game, 1);
+		}
 		i++;
 	}
 	height++;
@@ -106,7 +113,7 @@ void	set_values(t_game *game, t_map *map, char *file)
 		free(content);
 		exit_game(ERROR_INVALID_CHAR, game, 1);
 	}
-	map->height = get_height(content);
+	map->height = get_height(game, content);
 	map->width = get_width(content);
 	map->matriz = ft_split(content, '\n');
 	map->flood = ft_split(content, '\n');
