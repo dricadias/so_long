@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->map->width * TILE, \
 		game->map->height * TILE, "so_long");
-	mlx_hook(game->win, 2, 1L<<0, handle_input, game);
+	mlx_hook(game->win, 2, 1L << 0, handle_input, game);
 	mlx_hook(game->win, 17, 0, close_window, game);
 	load_img(game);
 	render_map(game);
