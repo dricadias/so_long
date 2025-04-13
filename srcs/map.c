@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/13 15:09:31 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:00:22 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ int	is_ber_file(char *file)
 	ber = ft_strlen(file);
 	while (file[ber] != '.')
 		ber--;
-	if (ft_strncmp(".ber\0", &file[ber], 5) == 0 && file[ber - 1])
+	if (ft_strncmp(".ber\0", &file[ber], 5) == 0 && file[ber - 1]
+		&& file[ber - 1] != '/')
 		return (1);
 	return (0);
 }
