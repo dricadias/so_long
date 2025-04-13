@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:02:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/10 19:28:54 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:01:25 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	is_valid_characters(char *content)
 	int	i;
 
 	i = 0;
+	if (!content[i])
+		return (0);
 	while (content[i])
 	{
 		if (content[i] != '0' && content[i] != '1' && content[i] != 'P'
